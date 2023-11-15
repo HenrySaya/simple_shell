@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <unistd.h>
+#include "shell.h"
 /**
  * get_user_input - Handles printing the shell prompt and getting user input.
  * @line: Pointer to the buffer for user input.
