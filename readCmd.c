@@ -16,7 +16,7 @@ char *read_cmd(void)
 			printf("\n");
 			exit(EXIT_SUCCESS);
 		}
-		perror("getline error");
+		perror("./hsh");
 		exit(EXIT_FAILURE);
 	}
 	/*Remove the newline character*/

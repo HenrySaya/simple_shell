@@ -13,7 +13,7 @@ void execute(const char *cmd)
 
 	if (pid == -1)
 	{
-		perror("fork");
+		perror("./hsh");
 		exit(EXIT_FAILURE);
 	}
 	else if (pid == 0)
