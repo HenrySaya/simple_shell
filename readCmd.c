@@ -1,26 +1,35 @@
 #include "shell.h"
 /**
- * readCmd - function gets the command from input
- * @line: command to be executed
- * @size: length of the command
+ * read_cmd - function gets the command from input
  *
  * Return: Always void;
  */
-void readCmd(char *line, size_t size)
+char *read_cmd(void)
 {
-	if (fgets(line, size, stdin) == NULL)
+	char *cmd = NULL;
+	size_t len = 0;
+
+	if (getline(&cmd, &len, stdin) == -1)
 	{
 		if (feof(stdin))
 		{
 			printf("\n");
 			exit(EXIT_SUCCESS);
 		}
-		else
-		{
-			perror("fgets");
-			exit(EXIT_FAILURE);
-		}
+		perror("getline error");
+		exit(EXIT_FAILURE);
 	}
-	/* Remove any newline in the command*/
-	line[strcspn(line, "\n")] = '\0';
+	/*Remove the newline character*/
+	cmd[strcspn(cmd, "\n")] = '\0';
+
+	return (cmd);
+}
+/**
+ * free_cmd - Free the memory allocated for the command
+ *
+ * @cmd: command to be freed from memory
+ */
+void free_cmd(char *cmd)
+{
+	    free(cmd);
 }

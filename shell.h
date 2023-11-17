@@ -12,7 +12,8 @@
 #define MAX_COMMAND_LENGTH 100
 
 void promptDisplay(void);
-void execute(const char *line);
-void readCmd(char *line, size_t size);
+void execute(const char *cmd);
+char *read_cmd(void);
+void free_cmd(char *cmd);
 
 #endif

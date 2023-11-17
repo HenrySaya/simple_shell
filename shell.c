@@ -7,13 +7,15 @@
  */
 int main(void)
 {
-	char line[MAX_COMMAND_LENGTH];
+	char *cmd;
 
 	while (true)
 	{
 		promptDisplay();
-		readCmd(line, sizeof(line));
-		execute(line);
+		cmd = read_cmd();
+		execute(cmd);
+
+		free_cmd(cmd);
 	}
 	return (0);
 }
