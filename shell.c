@@ -8,12 +8,20 @@
 int main(void)
 {
 	char *cmd;
+	char *token;
 
 	while (true)
 	{
 		promptDisplay();
 		cmd = read_cmd();
-		execute(cmd);
+
+		token = strtok(cmd, " ");
+
+		while (token != NULL)
+		{
+			execute(token);
+			token = strtok(NULL, " ");
+		}
 
 		free_cmd(cmd);
 	}
